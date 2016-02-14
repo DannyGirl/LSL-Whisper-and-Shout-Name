@@ -1,0 +1,18 @@
+string name;
+string capital; 
+integer count = TRUE;
+default
+{
+    touch_start(integer x)
+    {
+        name = llDetectedName(0);
+        capital = llToUpper(name); 
+        if (count == TRUE) {
+            llWhisper(0, name);
+            count = FALSE;
+        } else {
+            llShout(0, capital);
+            count = TRUE;
+        }
+    }
+}

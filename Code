@@ -1,14 +1,20 @@
 string name;
 string capital; 
+string lower;
 integer count = TRUE;
 default
 {
+    state_entry()
+    {
+        llSetText("Whisper and Shout Name", <1, 1, 1>, 1.0);
+    }
     touch_start(integer x)
     {
         name = llDetectedName(0);
         capital = llToUpper(name); 
+        lower = llToLower(name);
         if (count == TRUE) {
-            llWhisper(0, name);
+            llWhisper(0, lower);
             count = FALSE;
         } else {
             llShout(0, capital);
